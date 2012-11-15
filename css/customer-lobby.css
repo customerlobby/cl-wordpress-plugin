@@ -1,0 +1,111 @@
+#cust_lobby_widget {	
+	display:block;
+	width:215px;
+	border:1px solid #69b2da;
+	border-radius:7px;
+	position:relative;
+}
+
+#cust_lobby_widget .hreview-aggregate {
+	border-radius:6px 6px 0 0;
+	background: rgb(61,61,62); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(61,61,62,1) 0%, rgba(38,38,38,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(61,61,62,1)), color-stop(100%,rgba(38,38,38,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(61,61,62,1) 0%,rgba(38,38,38,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(61,61,62,1) 0%,rgba(38,38,38,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(61,61,62,1) 0%,rgba(38,38,38,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(61,61,62,1) 0%,rgba(38,38,38,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d3d3e', endColorstr='#262626',GradientType=0 ); /* IE6-9 */
+}
+
+#cust_lobby_widget .hreview-aggregate .hreview-count {
+	/* padding:11px 22px; */
+	color:white;
+	font-size:14px;
+	text-shadow:0.7px 0.7px 0 rgba(121, 43, 0, 0.75);
+	font-weight:bold;
+	padding:10px 10px 7px 40px;
+	margin-bottom:0;padding-bottom:0
+}
+
+#cust_lobby_widget .hreview-average {
+	margin-bottom:10px;
+	padding-left:40px;
+	padding-right:10px;
+	color:#949494
+}
+
+#cust_lobby_widget .hreview-aggregate .item .fn {
+	display:none
+}
+
+#cust_lobby_widget .hreview-average .average {
+	display:none
+}
+
+#cust_lobby_widget .photo {
+	left: -10px;
+    position: absolute;
+    top: -14px;
+	background:url(../images/megaphone.png) no-repeat;
+	width:40px;height:40px;display:block;
+}
+
+#cust_lobby_widget .rating {
+	width:70px;
+	height:10px;
+}
+
+#cust_lobby_widget .rating-1 { background:url("../images/rating-sprite.png") 0% 100% no-repeat; }
+#cust_lobby_widget .rating-2 { background:url("../images/rating-sprite.png") 0% 75% no-repeat; }
+#cust_lobby_widget .rating-3 { background:url("../images/rating-sprite.png") 0% 50% no-repeat; }
+#cust_lobby_widget .rating-4 { background:url("../images/rating-sprite.png") 0% 25% no-repeat; }
+#cust_lobby_widget .rating-5 { background:url("../images/rating-sprite.png") 0% 0% no-repeat; }
+
+.right {float:right}
+.left {float:left}
+.clear {clear:both}
+.stars-align {margin-top:5px}
+
+.hreview {margin:10px 10px 15px 10px}
+.description {color:#949494}
+span.fn-title {color:#619fbf;font-size:12px;margin-left:5px;font-weight:bold}
+div.bottom_info {font-size:10px;color:#619fbf}
+
+#cust_lobby_widget .more {
+	padding:0px 10px 10px 0px;
+	font-weight:bold;
+}
+
+#cust_lobby_widget .footer {
+    border-radius: 0 0 5px 5px;
+	background: rgb(119,184,218); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(119,184,218,1) 0%, rgba(98,161,194,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(119,184,218,1)), color-stop(100%,rgba(98,161,194,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(119,184,218,1) 0%,rgba(98,161,194,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(119,184,218,1) 0%,rgba(98,161,194,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(119,184,218,1) 0%,rgba(98,161,194,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(119,184,218,1) 0%,rgba(98,161,194,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#77b8da', endColorstr='#62a1c2',GradientType=0 ); /* IE6-9 */
+	padding:10px 15px;
+}
+
+#cust_lobby_widget .footer .verified { 
+	background: #fe6a06;
+	padding:4px 6px;
+	border-radius:4px;
+	color:white;
+}
+
+#cust_lobby_widget .footer h4 { 
+	color: white;
+    float: right;
+    font-size: 13px;
+    font-weight: bold;
+	padding-right: 1px;
+}
+
+#cust_lobby_widget a { text-decoration: underline; }
+#cust_lobby_widget a:hover { text-decoration: none; }
+#cust_lobby_widget .more a { font-weight: bold; }
+#cust_lobby_widget .footer a { text-decoration: none; }
