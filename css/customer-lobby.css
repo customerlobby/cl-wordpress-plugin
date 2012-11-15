@@ -34,6 +34,8 @@
 	margin-bottom:10px;
 	padding-left:40px;
 	color:#949494
+	padding-top: 2px;
+	padding-right: 10px;
 }
 
 #cust_lobby_widget .hreview-aggregate .item .fn {
@@ -104,7 +106,7 @@ div.bottom_info {font-size:10px;color:#619fbf}
 	color: white;
   font-size: 13px;
   font-weight: bold;
-	padding-right: 1px;
+	padding-left: 10px;
 }
 
 #cust_lobby_widget a { text-decoration: underline; }
