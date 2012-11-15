@@ -6,7 +6,7 @@
  * Version: 1.0
  */ 
 
-define('CL_PATH', dirname(__FILE__) . DIRECTORY_SEPARATOR);
+define('CL_PATH', dirname(__FILE__));
 define('CL_URL', plugins_url(basename(dirname(__FILE__))));
 define('CL_PREF', "customer_lobby_");
 
