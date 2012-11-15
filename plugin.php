@@ -111,7 +111,7 @@ if (!file_exists(CL_PATH . "/cached") || !is_writable(CL_PATH . "/cached")) {
         <span class='fn'>{$data['title']}</span></span>
         <p class='hreview-count'><span class='count'>{$data['count']}</span> " . __('customer reviews') . "</p>
         <p class='hreview-average left'>" . __('Average rating:') . "<span class='average rating'>{$data['average']}</span></p>
-        <div class='rating rating-{$data['average']} left stars-align'>&nbsp;</div>
+        <div class='rating rating-{$data['average']} left stars-align' style='margin-top:5px;'>&nbsp;</div>
         <div class='clear'></div>
     </div>
     {$content}
