@@ -110,15 +110,19 @@ if (!file_exists(CL_PATH . "/cached") || !is_writable(CL_PATH . "/cached")) {
         <span class='item'><span class='photo'>&nbsp;</span>
         <span class='fn'>{$data['title']}</span></span>
         <p class='hreview-count'><span class='count'>{$data['count']}</span> " . __('customer reviews') . "</p>
-        <p class='hreview-average left'>" . __('average rating:') . "<span class='average'>{$data['average']}</span></p>
+        <p class='hreview-average left'>" . __('average rating:') . "<span class='average rating'>{$data['average']}</span></p>
         <div class='rating rating-{$data['average']} left stars-align'>&nbsp;</div>
         <div class='clear'></div>
     </div>
     {$content}
-    <a class='more' href='{$data['url']}'>More Verified Reviews</a>
-    <div class='footer'>
-        <a href='http://www.customerlobby.com' title='Verified by Customer Lobby'><span class='verified'>" . __('Verified by') . "</span> <h4>Customer Lobby</h4></a>
-        <div class='clear'></div>
+    <a class='cust_lobby_more' href='{$data['url']}'>More Verified Reviews</a>
+    <div id='cust_lobby_footer'>
+      <table border='0'>
+        <tr>
+          <td><span class='verified'>Verified by</span></td>
+          <td><h4>Customer Lobby</h4></td>
+        </tr>
+      </table>
     </div>
 </div>";
         echo $after_widget;
@@ -142,7 +146,7 @@ if (!file_exists(CL_PATH . "/cached") || !is_writable(CL_PATH . "/cached")) {
         $cachetime = $hours * 60 * 60; // hours
 
         // if file is young but not older than the cache time
-        if (filemtime($cachefile) < (time() - $cachetime) || empty($hours)) {
+        if (filemtime(utf8_decode($cachefile)) < (time() - $cachetime) || empty($hours)) {
             $this->fetch_feed($url, $max);
         }
 
