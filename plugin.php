@@ -88,18 +88,23 @@ if (!file_exists(CL_PATH . "/cached") || !is_writable(CL_PATH . "/cached")) {
 
         $content = "";
 
-        foreach ($data['reviews'] as $review) {
+        if(count($data['reviews']) == 0){
+          $content = "";
+        }else{
+          foreach ($data['reviews'] as $review) {
 
-            $template = $template_file;
+              $template = $template_file;
 
-            $template = str_replace('$title', $this->format_string($review['title'], 20), $template);
-            $template = str_replace('$reviewer', $review['review_by'], $template);
-            $template = str_replace('$date', date('m/d/Y', strtotime($review['date'])), $template);
-            $template = str_replace('$summary', $this->format_string($review['review'], 60), $template);
-            $template = str_replace('$rating', $review['rating'], $template);
-            $template = str_replace('$url', $review['url'], $template);
+              $template = str_replace('$title', $this->format_string($review['title'], 20), $template);
+              $template = str_replace('$reviewer', $review['review_by'], $template);
+              $template = str_replace('$date', date('m/d/Y', strtotime($review['date'])), $template);
+              $template = str_replace('$summary', $this->format_string($review['review'], 60), $template);
+              $template = str_replace('$rating', $review['rating'], $template);
+              $template = str_replace('$url', $review['url'], $template);
 
-            $content .= $template;
+              $content .= $template;
+          }
+          
         }
 
         echo $before_widget;
@@ -115,7 +120,7 @@ if (!file_exists(CL_PATH . "/cached") || !is_writable(CL_PATH . "/cached")) {
         <div class='clear'></div>
     </div>
     {$content}
-    <a class='cust_lobby_more' href='{$data['url']}'>More Verified Reviews</a>
+    <a class='cust_lobby_more' href='{$data['url']}' target='_blank'>More Verified Reviews</a>
     <div id='cust_lobby_footer'>
       <table border='0'>
         <tr>
@@ -146,13 +151,14 @@ if (!file_exists(CL_PATH . "/cached") || !is_writable(CL_PATH . "/cached")) {
         $cachetime = $hours * 60 * 60; // hours
 
         // if file is young but not older than the cache time
-        if (filemtime(utf8_decode($cachefile)) < (time() - $cachetime) || empty($hours)) {
+        if (@filemtime(utf8_decode($cachefile)) < (time() - $cachetime) || empty($hours)) {
             $this->fetch_feed($url, $max);
         }
 
         // get cached
-        $data = file_get_contents(CL_PATH . "/cached/reviews.serialized");
-        return unserialize($data);
+
+        $data = @file_get_contents(CL_PATH . "/cached/reviews.serialized");
+        return unserialize($data);          
     }
 
     public function fetch_feed($url, $max)
