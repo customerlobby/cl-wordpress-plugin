@@ -1,115 +1,391 @@
+/* 
+HTML4.01 
+*/
+#cust_lobby_widget, #cust_lobby_widget h1, #cust_lobby_widget h2, 
+#cust_lobby_widget h3, #cust_lobby_widget h4, #cust_lobby_widget h5, 
+#cust_lobby_widget h6, #cust_lobby_widget p, #cust_lobby_widget td, 
+#cust_lobby_widget dl, #cust_lobby_widget tr, #cust_lobby_widget dt, 
+#cust_lobby_widget ol, #cust_lobby_widget form, #cust_lobby_widget select, 
+#cust_lobby_widget option, #cust_lobby_widget pre, #cust_lobby_widget div, 
+#cust_lobby_widget table,  #cust_lobby_widget th, #cust_lobby_widget tbody, 
+#cust_lobby_widget tfoot, #cust_lobby_widget caption, #cust_lobby_widget thead, 
+#cust_lobby_widget ul, #cust_lobby_widget li, #cust_lobby_widget address,
+#cust_lobby_widget blockquote, #cust_lobby_widget dd, #cust_lobby_widget fieldset, 
+#cust_lobby_widget li, #cust_lobby_widget iframe, #cust_lobby_widget strong, 
+#cust_lobby_widget legend, #cust_lobby_widget em, #cust_lobby_widget s, 
+#cust_lobby_widget cite, #cust_lobby_widget span, #cust_lobby_widget input, 
+#cust_lobby_widget sup, #cust_lobby_widget label, #cust_lobby_widget dfn, 
+#cust_lobby_widget object, #cust_lobby_widget big, #cust_lobby_widget q, 
+#cust_lobby_widget font, #cust_lobby_widget samp, #cust_lobby_widget acronym,
+#cust_lobby_widget small, #cust_lobby_widget img, #cust_lobby_widget strike, 
+#cust_lobby_widget code, #cust_lobby_widget sub, #cust_lobby_widget ins, 
+#cust_lobby_widget textarea, #cust_lobby_widget var, #cust_lobby_widget a, 
+#cust_lobby_widget abbr, #cust_lobby_widget applet, #cust_lobby_widget del, 
+#cust_lobby_widget kbd, #cust_lobby_widget tt, #cust_lobby_widget b, #cust_lobby_widget i, #cust_lobby_widget hr,
+
+/* HTML5 */
+#cust_lobby_widget article, #cust_lobby_widget aside, #cust_lobby_widget dialog, #cust_lobby_widget figure, 
+#cust_lobby_widget footer, #cust_lobby_widget header, #cust_lobby_widget hgroup, #cust_lobby_widget menu, 
+#cust_lobby_widget nav, #cust_lobby_widget section, #cust_lobby_widget time, #cust_lobby_widget mark, 
+#cust_lobby_widget audio, #cust_lobby_widget video {
+	background-attachment:scroll !important;
+	background-color:transparent !important;
+	background-image:none !important; /* This rule affects the use of pngfix JavaScript http://dillerdesign.com/experiment/DD_BelatedPNG for IE6, which is used to force the browser to recognise alpha-transparent PNGs files that replace the IE6 lack of PNG transparency. (The rule overrides the VML image that is used to replace the given CSS background-image). If you don't know what that means, then you probably haven't used the pngfix script, and this comment may be ignored :) */
+	background-position:0 0 !important;
+	background-repeat:repeat !important;
+	border-color:black !important;
+	border-color:currentColor !important; /* `border-color` should match font color. Modern browsers (incl. IE9) allow the use of "currentColor" to match the current font 'color' value <http://www.w3.org/TR/css3-color/#currentcolor>. For older browsers, a default of 'black' is given before this rule. Guideline to support older browsers: if you haven't already declared a border-color for an element, be sure to do so, e.g. when you first declare the border-width. */
+	border-radius:0 !important;
+	border-style:none !important;
+	border-width:medium !important;
+	bottom:auto !important;
+	clear:none !important;
+	clip:auto !important;
+	color:inherit !important;
+	counter-increment:none !important;
+	counter-reset:none !important;
+	cursor:auto !important;
+	direction:inherit !important;
+	display:inline !important;
+	float:none !important;
+	font-family: inherit !important; /* As with other inherit values, this needs to be set on the root container element */
+	font-size: inherit !important;
+	font-style:inherit !important;
+	font-variant:normal !important;
+	font-weight:inherit !important;
+	height:auto !important;
+	left:auto !important;
+	letter-spacing:normal !important;
+	line-height:inherit !important;
+	list-style-type: inherit !important; /* Could set list-style-type to none */
+	list-style-position: outside !important;
+	list-style-image: none !important;
+	margin:0 !important;
+	max-height:none !important;
+	max-width:none !important;
+	min-height:0 !important;
+	min-width:0 !important;
+	opacity:1;
+	outline:invert none medium !important;
+	overflow:visible !important;
+	padding:0 !important;
+	position:static !important;
+	quotes: "" "" !important;
+	right:auto !important;
+	table-layout:auto !important;
+	text-align:inherit !important;
+	text-decoration:inherit !important;
+	text-indent:0 !important;
+	text-transform:none !important;
+	top:auto !important;
+	unicode-bidi:normal !important;
+	vertical-align:baseline !important;
+	/*visibility:inherit !important;*/
+	white-space:normal !important;
+	width:auto !important;
+	word-spacing:normal !important;
+	/*z-index:auto !important;*/
+	
+	/* Proprietary and draft rules */
+    /* This section needs extending */
+	-moz-border-radius:0 !important;
+	-webkit-border-radius:0 !important;
+	-moz-box-sizing: content-box !important;
+	-webkit-box-sizing: content-box !important;
+	box-sizing: content-box !important;
+	text-shadow: none !important;	
+}
+
+/* == BLOCK-LEVEL == */
+/* Actually, some of these should be inline-block and other values, but block works fine (TODO: rigorously verify this) */
+/* HTML 4.01 */
+#cust_lobby_widget, #cust_lobby_widget h3, #cust_lobby_widget h5, #cust_lobby_widget p, #cust_lobby_widget h1, 
+#cust_lobby_widget dl, #cust_lobby_widget dt, #cust_lobby_widget h6, #cust_lobby_widget ol, #cust_lobby_widget form, 
+#cust_lobby_widget select, #cust_lobby_widget option, #cust_lobby_widget pre, #cust_lobby_widget div, 
+#cust_lobby_widget h2, #cust_lobby_widget caption, #cust_lobby_widget h4, #cust_lobby_widget ul, 
+#cust_lobby_widget address, #cust_lobby_widget blockquote, #cust_lobby_widget dd, #cust_lobby_widget fieldset, 
+#cust_lobby_widget textarea, #cust_lobby_widget hr,
+/* HTML5 new elements */
+#cust_lobby_widget article, #cust_lobby_widget aside, #cust_lobby_widget dialog, #cust_lobby_widget figure, 
+#cust_lobby_widget footer, #cust_lobby_widget header, #cust_lobby_widget hgroup, #cust_lobby_widget menu, 
+#cust_lobby_widget nav, #cust_lobby_widget section {
+    display:block !important; 
+}
+#cust_lobby_widget table {
+    display: table !important;
+}
+#cust_lobby_widget thead {
+    display: table-header-group !important;
+}
+#cust_lobby_widget tbody {
+    display: table-row-group !important;
+}
+#cust_lobby_widget tfoot {
+    display: table-footer-group !important;
+}
+#cust_lobby_widget tr {
+    display: table-row !important;
+}
+#cust_lobby_widget th, #cust_lobby_widget td {
+    display: table-cell !important;
+}
+/* == SPECIFIC ELEMENTS == */
+/* Some of these are browser defaults; some are just useful resets */
+
+#cust_lobby_widget nav ul, #cust_lobby_widget nav ol {
+	list-style-type:none !important;
+}
+#cust_lobby_widget ul, #cust_lobby_widget menu {
+	list-style-type:disc !important;
+}
+#cust_lobby_widget ol {
+	list-style-type:decimal !important;
+}
+#cust_lobby_widget ol ul, #cust_lobby_widget ul ul, #cust_lobby_widget menu ul, #cust_lobby_widget ol menu, 
+#cust_lobby_widget ul menu, #cust_lobby_widget menu menu {
+	list-style-type:circle !important;
+}
+#cust_lobby_widget ol ol ul, #cust_lobby_widget ol ul ul, #cust_lobby_widget ol menu ul, #cust_lobby_widget ol ol menu, 
+#cust_lobby_widget ol ul menu, #cust_lobby_widget ol menu menu, #cust_lobby_widget ul ol ul, #cust_lobby_widget ul ul ul, 
+#cust_lobby_widget ul menu ul, #cust_lobby_widget ul ol menu, #cust_lobby_widget ul ul menu, 
+#cust_lobby_widget ul menu menu, #cust_lobby_widget menu ol ul, #cust_lobby_widget menu ul ul, 
+#cust_lobby_widget menu menu ul, #cust_lobby_widget menu ol menu, #cust_lobby_widget menu ul menu, 
+#cust_lobby_widget menu menu menu {
+	list-style-type:square !important;
+}
+#cust_lobby_widget li {	
+	display:list-item !important;
+	/* Fixes IE7 issue with positioning of nested bullets */
+	min-height:auto !important;
+	min-width:auto !important;
+}
+#cust_lobby_widget strong {
+	font-weight:bold !important;
+}
+#cust_lobby_widget em {
+	font-style:italic !important;
+}
+#cust_lobby_widget kbd, #cust_lobby_widget samp, #cust_lobby_widget code {
+  font-family:monospace !important;
+}
+#cust_lobby_widget a, #cust_lobby_widget a *, #cust_lobby_widget input[type=submit], 
+#cust_lobby_widget input[type=radio], #cust_lobby_widget input[type=checkbox], #cust_lobby_widget select {
+	cursor:pointer !important;
+}
+#cust_lobby_widget a:hover {
+	text-decoration:underline !important;
+}
+#cust_lobby_widget button, #cust_lobby_widget input[type=submit] {
+  text-align: center !important;
+}
+#cust_lobby_widget input[type=hidden] {
+	display:none !important;
+}
+#cust_lobby_widget abbr[title], #cust_lobby_widget acronym[title], #cust_lobby_widget dfn[title] {
+	cursor:help !important;
+    border-bottom-width:1px !important;
+	border-bottom-style:dotted !important;
+}
+#cust_lobby_widget ins {
+	background-color:#ff9 !important;
+	color:black !important;
+}
+#cust_lobby_widget del {
+	text-decoration: line-through !important;
+}
+#cust_lobby_widget blockquote, #cust_lobby_widget q  {
+	quotes:none !important; /* HTML5 */
+}
+#cust_lobby_widget blockquote:before, #cust_lobby_widget blockquote:after, #cust_lobby_widget q:before, 
+#cust_lobby_widget q:after, #cust_lobby_widget li:before, #cust_lobby_widget li:after  {
+	content:"" !important;
+}
+#cust_lobby_widget input, #cust_lobby_widget select {
+	vertical-align:middle !important;
+}
+#cust_lobby_widget select, #cust_lobby_widget textarea, #cust_lobby_widget input {
+	border:1px solid #ccc !important;
+}
+#cust_lobby_widget table {
+	border-collapse:collapse !important;
+	border-spacing:0 !important;
+}
+#cust_lobby_widget hr {
+	display:block !important;
+	height:1px !important;
+	border:0 !important;
+	border-top:1px solid #ccc !important;
+	margin:1em 0 !important;
+}
+#cust_lobby_widget *[dir=rtl] {
+	direction: rtl !important;
+}
+#cust_lobby_widget mark {
+	background-color:#ff9 !important;
+	color:black !important;
+	font-style:italic !important;
+	font-weight:bold !important;
+}
+
+
+
+/* == ROOT CONTAINER ELEMENT == */
+/* This contains default values for child elements to inherit  */
+/*
+My styles               
+*/
+
+
+#cust_lobby_widget {
+	/*font-size: medium !important;*/
+	line-height: 1 !important;
+	direction:ltr !important;
+	text-align:left !important;
+	color: inherit !important;
+	font-style:normal !important;
+	font-weight:normal !important;
+	text-decoration:none !important;
+	list-style-type:disc !important;
+}
+
+#cust_lobby_widget ,
+#cust_lobby_widget .hreview-aggregate,
+#cust_lobby_widget .hreview  {
+    /*font-size: medium !important;*/
+    line-height: 1em !important;
+    font-style:normal !important;
+    text-decoration:none !important;
+    list-style-type:disc !important;
+}
+
+
+
 #cust_lobby_widget {	
-	display:block;
-	min-width:215px;
-	border:1px solid #69b2da;
-	border-radius:7px;
-	position:relative;
+	display:block !important;
+	background-color:#FFF !important;
+	min-width:215px !important;
+	border:2px solid #69b2da !important;
+	border-radius:7px !important;
+	position:relative !important;
+	margin: 15px 8px 8px !important;
 }
 
 #cust_lobby_widget .hreview-aggregate {
-	border-radius:6px 6px 0 0;
-	background: rgb(61,61,62); /* Old browsers */
-	background: -moz-linear-gradient(top, rgba(61,61,62,1) 0%, rgba(38,38,38,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(61,61,62,1)), color-stop(100%,rgba(38,38,38,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(61,61,62,1) 0%,rgba(38,38,38,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(61,61,62,1) 0%,rgba(38,38,38,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(61,61,62,1) 0%,rgba(38,38,38,1) 100%); /* IE10+ */
-	background: linear-gradient(to bottom, rgba(61,61,62,1) 0%,rgba(38,38,38,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d3d3e', endColorstr='#262626',GradientType=0 ); /* IE6-9 */
+	border-radius:6px 6px 0 0 !important;
+	background: rgb(61,61,62) !important; /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(61,61,62,1) 0%, rgba(38,38,38,1) 100%) !important; /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(61,61,62,1)), color-stop(100%,rgba(38,38,38,1))) !important; /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(61,61,62,1) 0%,rgba(38,38,38,1) 100%) !important; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(61,61,62,1) 0%,rgba(38,38,38,1) 100%) !important; /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(61,61,62,1) 0%,rgba(38,38,38,1) 100%) !important; /* IE10+ */
+	background: linear-gradient(to bottom, rgba(61,61,62,1) 0%,rgba(38,38,38,1) 100%) !important; /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d3d3e', endColorstr='#262626',GradientType=0 ) !important; /* IE6-9 */
 }
 
 #cust_lobby_widget .hreview-aggregate .hreview-count {
-	/* padding:11px 22px; */
-	color:white;
-	font-size:14px;
-	text-shadow:0.7px 0.7px 0 rgba(121, 43, 0, 0.75);
-	font-weight:bold;
-	padding:10px 10px 7px 40px;
-	margin: 0;
-  padding-bottom:0;
+	/* padding:11px 22px !important; */
+	color:white !important;
+	font-size:14px !important;
+	text-shadow:0.7px 0.7px 0 rgba(121, 43, 0, 0.75) !important;
+	font-weight:bold !important;
+	padding:10px 10px 7px 40px !important;
+	margin: 0 !important;
+  	padding-bottom:0 !important;
 }
 
 #cust_lobby_widget .hreview-average {
-  margin-top: 0px;
-	margin-bottom:10px;
-	padding-left:40px;
-	color:#949494;
-	padding-top: 2px;
-	padding-right: 10px;
+  	margin-top: 0px !important;
+	margin-bottom:10px !important;
+	padding-left:40px !important;
+	color:#949494 !important;
+	padding-top: 2px !important;
+	padding-right: 10px !important;
 }
 
 #cust_lobby_widget .hreview-aggregate .item .fn {
-	display:none
+	display:none !important;
 }
 
 #cust_lobby_widget .hreview-average .average {
-	display:none
+	display:none !important;
 }
 
 #cust_lobby_widget .photo {
-	left: -10px;
-    position: absolute;
-    top: -14px;
-	background:url(../images/megaphone.png) no-repeat;
-	width:40px;height:40px;display:block;
+	left: -11px !important;
+    position: absolute !important;
+    top: -15px !important;
+	background:url(../images/megaphone.png) no-repeat !important;
+	width:40px !important;height:40px !important;display:block !important;
 }
 
-#cust_lobby_widget .star-rating {
-	width:70px;
-	height:10px;
+#cust_lobby_widget .hreview-aggregate .star-rating {
+	width:70px !important;
+	height:10px !important;
+	margin-top: 3px !important;
 }
 
-#cust_lobby_widget .rating-1 { background:url("../images/rating-sprite.png") 0% 100% no-repeat; }
-#cust_lobby_widget .rating-2 { background:url("../images/rating-sprite.png") 0% 75% no-repeat; }
-#cust_lobby_widget .rating-3 { background:url("../images/rating-sprite.png") 0% 50% no-repeat; }
-#cust_lobby_widget .rating-4 { background:url("../images/rating-sprite.png") 0% 25% no-repeat; }
-#cust_lobby_widget .rating-5 { background:url("../images/rating-sprite.png") 0% 0% no-repeat; }
+#cust_lobby_widget .rating-1 { background:url("../images/rating-sprite.png") 0% 100% no-repeat !important; }
+#cust_lobby_widget .rating-2 { background:url("../images/rating-sprite.png") 0% 75% no-repeat !important; }
+#cust_lobby_widget .rating-3 { background:url("../images/rating-sprite.png") 0% 50% no-repeat !important; }
+#cust_lobby_widget .rating-4 { background:url("../images/rating-sprite.png") 0% 25% no-repeat !important; }
+#cust_lobby_widget .rating-5 { background:url("../images/rating-sprite.png") 0% 0% no-repeat !important; }
 
-.right {float:right}
-.left {float:left}
-.clear {clear:both}
-.stars-align {margin-top:2px}
+#cust_lobby_widget .right {float:right !important;}
+#cust_lobby_widget .left {float:left !important;}
+#cust_lobby_widget .clear {clear:both !important;}
+#cust_lobby_widget .stars-align {margin-top:2px !important;}
 
-.hreview {margin:10px 10px 15px 10px}
-.description {color:#949494}
-span.fn-title {color:#619fbf;font-size:12px;margin-left:5px;font-weight:bold}
-div.bottom_info {font-size:10px;color:#619fbf}
+#cust_lobby_widget .hreview {margin:10px 10px 15px 10px !important;}
+#cust_lobby_widget .hreview .star-rating {
+	width:70px !important;
+	height:10px !important;
+	margin-top: 0px !important;
+}
+#cust_lobby_widget .description {color:#333333 !important;}
+#cust_lobby_widget span.fn-title {color:#619fbf !important;font-size:12px !important;margin-left:5px !important;font-weight:bold !important;}
+#cust_lobby_widget div.bottom_info {font-size:10px !important;color:#619fbf !important}
 
 #cust_lobby_widget .cust_lobby_more {
-  display: block;
-  text-align: center;
-  padding-bottom: 10px;
-	font-weight:bold;
+    display: block !important;
+    text-align: center !important;
+    padding-bottom: 10px !important;
+	font-weight:bold !important;
+}
+#cust_lobby_widget a{
+    color: inherit !important;
 }
 
 #cust_lobby_widget #cust_lobby_footer {
-    border-radius: 0 0 5px 5px;
-	background: rgb(119,184,218); /* Old browsers */
-	background: -moz-linear-gradient(top, rgba(119,184,218,1) 0%, rgba(98,161,194,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(119,184,218,1)), color-stop(100%,rgba(98,161,194,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(119,184,218,1) 0%,rgba(98,161,194,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(119,184,218,1) 0%,rgba(98,161,194,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(119,184,218,1) 0%,rgba(98,161,194,1) 100%); /* IE10+ */
-	background: linear-gradient(to bottom, rgba(119,184,218,1) 0%,rgba(98,161,194,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#77b8da', endColorstr='#62a1c2',GradientType=0 ); /* IE6-9 */
-	padding:10px 15px;
+    border-radius: 0 0 5px 5px !important;
+	background: rgb(119,184,218) !important; /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(119,184,218,1) 0%, rgba(98,161,194,1) 100%) !important; /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(119,184,218,1)), color-stop(100%,rgba(98,161,194,1))) !important; /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(119,184,218,1) 0%,rgba(98,161,194,1) 100%) !important; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(119,184,218,1) 0%,rgba(98,161,194,1) 100%) !important; /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(119,184,218,1) 0%,rgba(98,161,194,1) 100%) !important; /* IE10+ */
+	background: linear-gradient(to bottom, rgba(119,184,218,1) 0%,rgba(98,161,194,1) 100%) !important; /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#77b8da', endColorstr='#62a1c2',GradientType=0 ) !important; /* IE6-9 */
+	padding:10px 15px !important;
 }
 
 #cust_lobby_widget #cust_lobby_footer .verified { 
-	background: #fe6a06;
-	padding:4px 6px;
-	border-radius:4px;
-	color:white;
+	background: #fe6a06 !important;
+	padding:4px 6px !important;
+	border-radius:4px !important;
+	color:white !important;
 }
 
 #cust_lobby_widget #cust_lobby_footer h4 { 
-	color: white;
-  font-size: 13px;
-  font-weight: bold;
-	padding-left: 10px;
+	color: white !important;
+  font-size: 13px !important;
+  font-weight: bold !important;
+	padding-left: 10px !important;
 }
 
-#cust_lobby_widget a { text-decoration: underline; }
-#cust_lobby_widget a:hover { text-decoration: none; }
-#cust_lobby_widget .more a { font-weight: bold; }
-#cust_lobby_widget .footer a { text-decoration: none; }
+#cust_lobby_widget a { 
+    text-decoration: underline !important; 
+    color: #EE8800 !important;
+}
+#cust_lobby_widget a:hover { text-decoration: none !important; color: #FFAA00 !important;}
+#cust_lobby_widget .more a { font-weight: bold !important; }
+#cust_lobby_widget .footer a { text-decoration: none !important; }

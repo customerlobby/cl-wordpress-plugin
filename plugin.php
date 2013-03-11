@@ -3,7 +3,7 @@
  * Plugin Name: Customer Lobby Verified Reviews
  * Description: A custom plugin created to grab reviews from RSS
  * Author: Customer Lobby | www.customerlobby.com
- * Version: 1.0
+ * Version: 4.0
  */ 
 
 define('CL_PATH', dirname(__FILE__));
