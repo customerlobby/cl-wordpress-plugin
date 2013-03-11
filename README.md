@@ -1,0 +1,1 @@
+git archive master --format zip --output ./dist/cl-wordpress-plugin-r4.zip
