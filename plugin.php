@@ -3,7 +3,7 @@
  * Plugin Name: Customer Lobby Verified Reviews
  * Description: A custom plugin created to grab reviews from RSS
  * Author: Customer Lobby | www.customerlobby.com
- * Version: 4.0
+ * Version: 4.1
  */ 
 
 define('CL_PATH', dirname(__FILE__));
@@ -178,7 +178,7 @@ if (!file_exists(CL_PATH . "/cached") || !is_writable(CL_PATH . "/cached")) {
         $title = $feed->get_title();
         $desc = $feed->get_description();
         $url = $feed->get_permalink();
-        $author = $feed->get_author();
+        
 
         preg_match('/\d+ Published Reviews/', $desc, $matches);
         $count = intval($matches[0]);
@@ -188,24 +188,33 @@ if (!file_exists(CL_PATH . "/cached") || !is_writable(CL_PATH . "/cached")) {
 
         foreach ($rss_items as $item) {
             $content = $item->get_content();
+            $author =  $item->get_author();
+            $author_name = $author->email;
 
-            if (preg_match('/\d/Uis', $item->get_title(), $matches)) {
+
+            if (preg_match('/\d+ Star Review/', $item->get_title(), $matches)) {
                 $rating = $matches[0];
             }
+            
 
-            if (preg_match('/\-\s.*\./Uis', $content, $matches)) {
-                $content = rtrim($content, $matches[0]);
-                $reviewby = ltrim(end($matches), '- By');
-                $reviewby = rtrim($reviewby, '.');
-            }
+            $content_array = explode(" - ", $content);
+            $author_from_content = array_pop($content_array);
+            $content = implode("-",$content_array);
 
+            // if (preg_match('/\-\s.*\./Uis', $content, $matches)) {
+            //     $content = rtrim($content, $matches[0]);
+            //     $reviewby = ltrim(end($matches), '- By');
+            //     $reviewby = rtrim($reviewby, '.');
+            // }
+            
+            
             $return[] = array(
                 'title' => str_replace($rating . ' Star Review: ', '', $item->get_title()),
                 'date' => $item->get_date('d-m-Y H:i:s'),
                 'url' => $item->get_permalink(),
                 'review' => trim($content, ". "),
                 'rating' => $rating,
-                'review_by' => ((empty($author)) ? $author : $reviewBy)
+                'review_by' => (empty($author_name)? $author_from_content : $author_name)
             );
         }
 
