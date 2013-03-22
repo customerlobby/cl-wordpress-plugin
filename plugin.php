@@ -178,6 +178,7 @@ if (!file_exists(CL_PATH . "/cached") || !is_writable(CL_PATH . "/cached")) {
         $title = $feed->get_title();
         $desc = $feed->get_description();
         $url = $feed->get_permalink();
+        $author = $feed->get_author();
 
         preg_match('/\d+ Published Reviews/', $desc, $matches);
         $count = intval($matches[0]);
@@ -194,7 +195,7 @@ if (!file_exists(CL_PATH . "/cached") || !is_writable(CL_PATH . "/cached")) {
 
             if (preg_match('/\-\s.*\./Uis', $content, $matches)) {
                 $content = rtrim($content, $matches[0]);
-                $reviewby = ltrim($matches[0], '- By');
+                $reviewby = ltrim(end($matches), '- By');
                 $reviewby = rtrim($reviewby, '.');
             }
 
@@ -204,7 +205,7 @@ if (!file_exists(CL_PATH . "/cached") || !is_writable(CL_PATH . "/cached")) {
                 'url' => $item->get_permalink(),
                 'review' => trim($content, ". "),
                 'rating' => $rating,
-                'review_by' => $reviewby,
+                'review_by' => ((empty($author)) ? $author : $reviewBy)
             );
         }
 
