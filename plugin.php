@@ -168,7 +168,7 @@ if (!file_exists(CL_PATH . "/cached") || !is_writable(CL_PATH . "/cached")) {
 
         if (!is_wp_error($feed)) { // no error
             $maxitems = $feed->get_item_quantity($max);
-            $rss_items = $feed->get_items(0, $maxitems);
+            $rss_items = $feed->get_items(0, $maxitems);            
         }
 
         if ($maxitems == 0) {
@@ -192,7 +192,7 @@ if (!file_exists(CL_PATH . "/cached") || !is_writable(CL_PATH . "/cached")) {
             $author_name = $author->email;
 
 
-            if (preg_match('/\d+ Star Review/', $item->get_title(), $matches)) {
+            if (preg_match('/\d/Uis', $item->get_title(), $matches)) {
                 $rating = $matches[0];
             }
             
