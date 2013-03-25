@@ -3,7 +3,7 @@
  * Plugin Name: Customer Lobby Verified Reviews
  * Description: A custom plugin created to grab reviews from RSS
  * Author: Customer Lobby | www.customerlobby.com
- * Version: 4.1
+ * Version: 4.2
  */ 
 
 define('CL_PATH', dirname(__FILE__));
@@ -60,6 +60,13 @@ class Customer_Lobby_Widget extends WP_Widget
 </p>
 
 <p>
+    <label for="<?php echo $this->get_field_id(CL_PREF . 'review_body_char_limit'); ?>">Characters per review:</label> 
+    <input placeholder='default: 60' type="text" class="widefat" id="<?php echo $this->get_field_id(CL_PREF . 'review_body_char_limit'); ?>"
+        name="<?php echo $this->get_field_name(CL_PREF . 'review_body_char_limit'); ?>"
+        value="<?php if (isset($instance[CL_PREF . 'review_body_char_limit'])) { echo esc_attr($instance[CL_PREF . 'review_body_char_limit']); } ?>" />
+<p class="description">Use positive integers OR keyword 'all' . Default: 60 </p>
+</p>
+<p>
 	<label for="<?php echo $this->get_field_id(CL_PREF . 'cache'); ?>">Cache
 		for?:</label> <input placeholder='default: 1hr' type="number"
 		class="widefat" id="<?php echo $this->get_field_id(CL_PREF . 'cache'); ?>"
@@ -80,7 +87,15 @@ if (!file_exists(CL_PATH . "/cached") || !is_writable(CL_PATH . "/cached")) {
     {
         extract($instance);
         extract($args);
-
+        $review_substring = true;
+        $char_limit = $instance[CL_PREF . 'review_body_char_limit'];
+        if (empty($char_limit))
+            $char_limit = 60;
+        elseif (strtolower(trim($char_limit)) == 'all') {
+            $review_substring = false;
+        } else {
+            $char_limit = intval($char_limit);
+        }
         $data = $this->get_reviews($instance);
 
         // get template        
@@ -94,11 +109,16 @@ if (!file_exists(CL_PATH . "/cached") || !is_writable(CL_PATH . "/cached")) {
           foreach ($data['reviews'] as $review) {
 
               $template = $template_file;
+              if ($review_substring) {
+                $template = str_replace('$title', $this->format_string($review['title'], 20), $template);
+                $template = str_replace('$summary', $this->format_string($review['review'], $char_limit), $template);
+              } else {
+                $template = str_replace('$title', $review['title'], $template);
+                $template = str_replace('$summary', $review['review'], $template);
+              }
 
-              $template = str_replace('$title', $this->format_string($review['title'], 20), $template);
               $template = str_replace('$reviewer', $review['review_by'], $template);
               $template = str_replace('$date', date('m/d/Y', strtotime($review['date'])), $template);
-              $template = str_replace('$summary', $this->format_string($review['review'], 60), $template);
               $template = str_replace('$rating', $review['rating'], $template);
               $template = str_replace('$url', $review['url'], $template);
 
@@ -168,7 +188,7 @@ if (!file_exists(CL_PATH . "/cached") || !is_writable(CL_PATH . "/cached")) {
 
         if (!is_wp_error($feed)) { // no error
             $maxitems = $feed->get_item_quantity($max);
-            $rss_items = $feed->get_items(0, $maxitems);
+            $rss_items = $feed->get_items(0, $maxitems);            
         }
 
         if ($maxitems == 0) {
@@ -192,7 +212,7 @@ if (!file_exists(CL_PATH . "/cached") || !is_writable(CL_PATH . "/cached")) {
             $author_name = $author->email;
 
 
-            if (preg_match('/\d+ Star Review/', $item->get_title(), $matches)) {
+            if (preg_match('/\d/Uis', $item->get_title(), $matches)) {
                 $rating = $matches[0];
             }
             
@@ -212,7 +232,7 @@ if (!file_exists(CL_PATH . "/cached") || !is_writable(CL_PATH . "/cached")) {
                 'title' => str_replace($rating . ' Star Review: ', '', $item->get_title()),
                 'date' => $item->get_date('d-m-Y H:i:s'),
                 'url' => $item->get_permalink(),
-                'review' => trim($content, ". "),
+                'review' => trim($content, " "),
                 'rating' => $rating,
                 'review_by' => (empty($author_name)? $author_from_content : $author_name)
             );
@@ -240,7 +260,7 @@ if (!file_exists(CL_PATH . "/cached") || !is_writable(CL_PATH . "/cached")) {
         return $reviews;
     }
 
-    public function format_string($content, $limit = 100)
+    public function format_string($content, $limit = 60)
     {
         $count = 0;
         $result = "";
@@ -254,7 +274,8 @@ if (!file_exists(CL_PATH . "/cached") || !is_writable(CL_PATH . "/cached")) {
                 $result = $temp;
             }
         }
-
+        if (strlen($result) < strlen($content))
+            $result = $result. "...";
         return $result;
     }
 }
