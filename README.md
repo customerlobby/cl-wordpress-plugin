@@ -1,1 +1,1 @@
-git archive master --format zip --output ./dist/cl-wordpress-plugin-r4.2.zip
+git archive master --format zip --output ./dist/cl-wordpress-plugin-r4.3.zip

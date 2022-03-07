@@ -1,11 +1,14 @@
-<div class="hreview">
+<div class="hreview" itemtype="http://schema.org/Review" itemprop="review">
 	<div class="item">
 		<span class="star-rating rating-$rating left stars-align">&nbsp;</span>
-		<span class='rating' style='visibility:hidden;'>$rating</span>
+		<span class='rating' style='visibility:hidden;' itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+			$rating
+			<meta itemprop="ratingValue" content="<?= $rating ?>" />
+		</span>
 		<span class="fn fn-title">$title</span><div class="clear"></div>
 	</div>
-	<div class="description">$summary</div>
-	<div class="bottom_info">by <span class="reviewer">$reviewer</span>
-		on <span class="dtreviewed">$date<span class="value-title" title="$date"></span></span>
+	<div class="description" itemprop="description">$summary</div>
+	<div class="bottom_info">by <span class="reviewer" itemprop="author">$reviewer</span>
+		on <span class="dtreviewed" itemprop="datePublished">$date<span class="value-title" title="$date"></span></span>
 	</div>
 </div>
